@@ -1,0 +1,80 @@
+import React from 'react';
+import { ArrowUpRight, Layers, Sparkles, Terminal } from 'lucide-react';
+import { WindowId } from '../types';
+
+interface HeroCardProps {
+  onOpenWindow: (id: WindowId) => void;
+}
+
+export const HeroCard: React.FC<HeroCardProps> = ({ onOpenWindow }) => {
+  return (
+    <div className="max-w-lg w-full bg-white border border-zinc-200 hover:border-zinc-400 rounded-3xl p-7 shadow-xl shadow-black/5 transition-all duration-300 relative overflow-hidden group">
+      
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute -top-20 -right-20 w-48 h-48 bg-zinc-100 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Status Header */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="inline-flex items-center gap-2 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-full text-zinc-700 text-[11px] font-mono">
+          <Terminal className="w-3.5 h-3.5 text-black" />
+          <span>SYSTEM_READY // DIGITAL ARCHITECT</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="font-mono text-[10px] text-zinc-500 uppercase font-bold">ONLINE</span>
+        </div>
+      </div>
+      
+      {/* Header Title */}
+      <div className="space-y-1 mb-3">
+        <div className="flex items-baseline gap-2">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-black font-sans">
+            ILNUR.STUDIO
+          </h1>
+          <span className="font-mono text-xs text-zinc-400 font-bold">©2025</span>
+        </div>
+        <p className="font-mono text-xs text-zinc-800 font-bold tracking-widest uppercase">
+          FULL-STACK WEB DESIGN & ENGINEERING
+        </p>
+      </div>
+
+      {/* Intro paragraph */}
+      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
+        Создаю минималистичные премиум-сайты, интерактивные 3D-интерфейсы и веб-приложения с продуманным продуктовым UX и безупречной типографикой.
+      </p>
+
+      {/* Tech stack tags */}
+      <div className="flex flex-wrap gap-1.5 mb-7">
+        {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Motion', 'WebGL / 3D', 'Figma'].map((tech) => (
+          <span
+            key={tech}
+            className="font-mono text-[11px] bg-zinc-100 text-zinc-800 px-3 py-1 rounded-lg border border-zinc-200 font-medium"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => onOpenWindow('contacts')}
+          className="flex-1 bg-black text-white hover:bg-zinc-800 font-mono font-bold text-xs sm:text-sm px-5 py-3 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer group/btn"
+        >
+          <span>START PROJECT</span>
+          <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+        </button>
+
+        <button
+          onClick={() => onOpenWindow('works')}
+          className="bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 text-zinc-900 font-mono text-xs sm:text-sm px-5 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer font-bold"
+        >
+          <Layers className="w-4 h-4 text-black" />
+          <span>PORTFOLIO</span>
+        </button>
+      </div>
+
+    </div>
+  );
+};
+

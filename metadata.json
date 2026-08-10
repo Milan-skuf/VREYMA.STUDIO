@@ -1,0 +1,6 @@
+{
+  "name": "ILNUR.STUDIO — Web Design & Development",
+  "description": "Interactive OS-style developer portfolio and studio workspace with desktop folders, windows, dock, and project showcases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
