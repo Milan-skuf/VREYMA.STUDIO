@@ -124,7 +124,7 @@ export default function App() {
         {/* Top Desktop Row: Hero Card & Desktop Folders */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-8 max-w-7xl mx-auto w-full">
           
-          {/* Main Hero Card (ilnur.studio glass card) */}
+          {/* Main Hero Card (vreyma.studio glass card) */}
           <div className="w-full lg:w-auto mt-4 sm:mt-8">
             <HeroCard onOpenWindow={openWindow} />
           </div>
