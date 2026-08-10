@@ -17,35 +17,35 @@ export const HeroCard: React.FC<HeroCardProps> = ({ onOpenWindow }) => {
       <div className="flex items-center justify-between mb-4">
         <div className="inline-flex items-center gap-2 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-full text-zinc-700 text-[11px] font-mono">
           <Terminal className="w-3.5 h-3.5 text-black" />
-          <span>SYSTEM_READY // DIGITAL ARCHITECT</span>
+          <span>СИСТЕМА ГОТОВА // VREYMA.STUDIO</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="font-mono text-[10px] text-zinc-500 uppercase font-bold">ONLINE</span>
+          <span className="font-mono text-[10px] text-zinc-500 uppercase font-bold">В СЕТИ</span>
         </div>
       </div>
       
       {/* Header Title */}
       <div className="space-y-1 mb-3">
         <div className="flex items-baseline gap-2">
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-black font-sans">
-            ILNUR.STUDIO
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white bg-black px-2 py-1 flex items-center font-sans tracking-tight leading-none leading-[0.9]">
+            VREYMA.STUDIO
           </h1>
-          <span className="font-mono text-xs text-zinc-400 font-bold">©2025</span>
+          <span className="font-mono text-[10px] text-zinc-400 font-bold mb-auto mt-1">©2025</span>
         </div>
-        <p className="font-mono text-xs text-zinc-800 font-bold tracking-widest uppercase">
-          FULL-STACK WEB DESIGN & ENGINEERING
+        <p className="font-mono text-[11px] sm:text-[12px] text-zinc-800 font-bold tracking-wider uppercase mt-1">
+          ПРЕМИУМ-САЙТЫ • 3D МАКЕТЫ ОДЕЖДЫ • TELEGRAM MINI APPS
         </p>
       </div>
 
       {/* Intro paragraph */}
-      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
-        Создаю минималистичные премиум-сайты, интерактивные 3D-интерфейсы и веб-приложения с продуманным продуктовым UX и безупречной типографикой.
+      <p className="text-[13px] sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
+        Разработка минималистичных премиум-сайтов, интерактивных 3D-интерфейсов, 3D макетов и рекламы одежды, ИИ-контента для брендов, а также Telegram Mini Apps и ботов под ключ.
       </p>
 
       {/* Tech stack tags */}
       <div className="flex flex-wrap gap-1.5 mb-7">
-        {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Motion', 'WebGL / 3D', 'Figma'].map((tech) => (
+        {['3D Clothing', 'Telegram Mini Apps', '3D / WebGL', 'AI Fashion Content', 'React / TypeScript', 'Telegram Bots'].map((tech) => (
           <span
             key={tech}
             className="font-mono text-[11px] bg-zinc-100 text-zinc-800 px-3 py-1 rounded-lg border border-zinc-200 font-medium"
@@ -61,7 +61,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({ onOpenWindow }) => {
           onClick={() => onOpenWindow('contacts')}
           className="flex-1 bg-black text-white hover:bg-zinc-800 font-mono font-bold text-xs sm:text-sm px-5 py-3 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer group/btn"
         >
-          <span>START PROJECT</span>
+          <span>НАЧАТЬ ПРОЕКТ</span>
           <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
         </button>
 

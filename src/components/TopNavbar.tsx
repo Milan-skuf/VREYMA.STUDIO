@@ -47,7 +47,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
           >
             <div className="w-2.5 h-2.5 rounded-full bg-black group-hover:scale-125 transition-all" />
             <span className="font-mono font-extrabold tracking-widest text-sm text-black group-hover:opacity-70 transition-opacity">
-              ILNUR.STUDIO
+              VREYMA.STUDIO
             </span>
             <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded">
               v2.5.0
@@ -60,14 +60,14 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
               onClick={onOpenPrivacy}
               className="hover:text-black transition-colors cursor-pointer"
             >
-              /privacy
+              /политика
             </button>
             <span>/</span>
             <button 
               onClick={onOpenTerms}
               className="hover:text-black transition-colors cursor-pointer"
             >
-              /terms
+              /условия
             </button>
           </div>
         </div>
@@ -82,10 +82,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[01] WORKS</span>
-            <span className="text-[10px] bg-black text-white px-1.5 py-0.2 rounded font-mono font-bold">
-              7
-            </span>
+            <span>[01] РАБОТЫ</span>
           </button>
 
           <button
@@ -96,10 +93,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[02] PROCESS & PRICING</span>
-            <span className="text-[10px] bg-zinc-100 border border-zinc-300 text-zinc-700 px-1.5 py-0.2 rounded font-mono">
-              EST.
-            </span>
+            <span>[02] ЦЕНЫ</span>
           </button>
 
           <button
@@ -110,7 +104,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[03] CONTACTS</span>
+            <span>[03] КОНТАКТЫ</span>
           </button>
         </nav>
 
@@ -122,7 +116,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span className="hidden sm:inline font-mono tracking-tight">AVAILABLE FOR FREELANCE</span>
+            <span className="hidden sm:inline font-mono tracking-tight">СВОБОДЕН ДЛЯ ПРОЕКТОВ</span>
             <span className="sm:hidden font-mono">ONLINE</span>
           </div>
 

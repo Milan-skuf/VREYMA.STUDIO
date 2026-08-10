@@ -97,8 +97,15 @@ export default function App() {
   return (
     <div className="relative w-screen h-screen overflow-hidden select-none bg-white font-sans text-zinc-900">
       
-      {/* Light Grid Background (xsai.vision style) */}
+      {/* Light Grid Background & Collage */}
       <div className="absolute inset-0 z-0 bg-white bg-xsai-grid-light">
+        <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 lg:w-1/2 overflow-hidden pointer-events-none flex items-center justify-end pr-4 sm:pr-8 pt-20">
+          <img 
+            src={bgImage} 
+            alt="Studio Background" 
+            className="w-full h-auto object-contain mix-blend-multiply opacity-100"
+          />
+        </div>
         {/* Subtle top light gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-100/60 via-transparent to-zinc-50/80 pointer-events-none" />
       </div>
