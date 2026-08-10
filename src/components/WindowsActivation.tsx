@@ -5,7 +5,7 @@ export const WindowsActivation: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [activated, setActivated] = useState(false);
 
-  const keyString = 'ILNUR-STUDIO-DESIGN-2025-PRO';
+  const keyString = 'VREYMA-STUDIO-DESIGN-2025-PRO';
 
   return (
     <>
@@ -37,7 +37,7 @@ export const WindowsActivation: React.FC = () => {
                 <Key className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-base font-mono">Активация системы ILNUR.STUDIO</h3>
+                <h3 className="font-bold text-base font-mono">Активация системы VREYMA.STUDIO</h3>
                 <p className="text-xs text-zinc-400">Параметры ОС студии</p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export const WindowsActivation: React.FC = () => {
             ) : (
               <div className="space-y-4">
                 <p className="text-xs text-zinc-300 leading-relaxed">
-                  Поздравляем, вы нашли пасхалку из скриншота! Вы можете бесплатно активировать лицензионный ключ разработчика ILNUR.STUDIO ниже:
+                  Поздравляем, вы нашли пасхалку из скриншота! Вы можете бесплатно активировать лицензионный ключ разработчика VREYMA.STUDIO ниже:
                 </p>
 
                 <div className="bg-zinc-900 border border-white/10 p-3 rounded-xl font-mono text-center text-xs text-pink-400 font-bold select-all tracking-widest">

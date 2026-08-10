@@ -23,11 +23,11 @@ export const DockBar: React.FC<DockBarProps> = ({
         <button
           onClick={onOpenTelegram}
           className="group relative p-3 rounded-xl bg-zinc-100 border border-zinc-200 hover:border-black text-zinc-700 hover:text-black hover:scale-105 active:scale-95 transition-all cursor-pointer"
-          title="Telegram — @ilnur_studio"
+          title="Telegram — @VREYMA_studio"
         >
           <Send className="w-5 h-5 -rotate-12 group-hover:rotate-0 transition-transform text-black" />
           <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-black border border-black text-white text-[10px] font-mono font-bold px-2 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-            Telegram (@ilnur_studio)
+            Telegram (@VREYMA_studio)
           </span>
         </button>
 
