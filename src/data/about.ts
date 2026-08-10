@@ -14,7 +14,7 @@ export interface TeamMember {
 export const ABOUT_INFO = {
   name: 'VREYMA.STUDIO',
   role: 'Дуэт инженеров & 3D/Графических дизайнеров',
-  avatar: '/src/photo_2026-08-07_22-56-44.jpg',
+  avatar: '/photo_2026-08-07_22-56-44.jpg',
   tagline: 'Камерная цифровая студия из двух специалистов. Объединяем веб-архитектуру, 3D интерьеры, чертежи и макеты помещений, фэшн-визуализацию и полный спектр графического дизайна.',
   location: 'Удаленно по всему миру',
   teamMembers: [
@@ -23,7 +23,7 @@ export const ABOUT_INFO = {
       name: 'Основатель & Lead Developer',
       role: 'Веб-архитектор • 3D WebGL • Telegram Apps',
       badge: 'Fullstack & 3D Engineer',
-      avatar: '/src/photo_2026-08-07_22-56-44.jpg',
+      avatar: '/photo_2026-08-07_22-56-44.jpg',
       specialties: [
         'Премиум веб-сайты',
         'Интерактивные 3D-интерфейсы',
@@ -37,7 +37,7 @@ export const ABOUT_INFO = {
       name: '3D & Графический Дизайнер',
       role: '3D Интерьеры • Графический дизайн во всех сферах • Чертежи',
       badge: '3D Interior & Graphic Designer',
-      avatar: '/images/photo_2026-04-21_17-10-58.jpg',
+      avatar: '/photo_2026-04-21_17-10-58.jpg',
       education: 'Выпускница ККАСиЦТ',
       specialties: [
         '3D макеты & визуализация интерьеров',
