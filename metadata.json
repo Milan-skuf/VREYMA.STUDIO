@@ -1,6 +1,6 @@
 {
-  "name": "ILNUR.STUDIO — Web Design & Development",
-  "description": "Interactive OS-style developer portfolio and studio workspace with desktop folders, windows, dock, and project showcases.",
+  "name": "VREYMA.STUDIO — Премиум веб-дизайн, 3D интерьеры & Telegram Mini Apps",
+  "description": "Студия VREYMA.STUDIO: минималистичные премиум-сайты, 3D интерьеры, чертежи, 3D макеты одежды и реклама, графический дизайн во всех сферах, Telegram Mini Apps и боты под ключ.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

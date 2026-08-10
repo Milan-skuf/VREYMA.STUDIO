@@ -28,18 +28,18 @@ export const HeroCard: React.FC<HeroCardProps> = ({ onOpenWindow }) => {
       {/* Header Title */}
       <div className="space-y-1 mb-3">
         <div className="flex items-baseline gap-2">
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white bg-black px-2 py-1 flex items-center font-sans tracking-tight leading-none leading-[0.9]">
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-black font-sans">
             VREYMA.STUDIO
           </h1>
-          <span className="font-mono text-[10px] text-zinc-400 font-bold mb-auto mt-1">©2025</span>
+          <span className="font-mono text-xs text-zinc-400 font-bold">©2025</span>
         </div>
-        <p className="font-mono text-[11px] sm:text-[12px] text-zinc-800 font-bold tracking-wider uppercase mt-1">
+        <p className="font-mono text-xs text-zinc-800 font-bold tracking-widest uppercase">
           ПРЕМИУМ-САЙТЫ • 3D МАКЕТЫ ОДЕЖДЫ • TELEGRAM MINI APPS
         </p>
       </div>
 
       {/* Intro paragraph */}
-      <p className="text-[13px] sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
+      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 font-normal">
         Разработка минималистичных премиум-сайтов, интерактивных 3D-интерфейсов, 3D макетов и рекламы одежды, ИИ-контента для брендов, а также Telegram Mini Apps и ботов под ключ.
       </p>
 
@@ -70,7 +70,7 @@ export const HeroCard: React.FC<HeroCardProps> = ({ onOpenWindow }) => {
           className="bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 text-zinc-900 font-mono text-xs sm:text-sm px-5 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer font-bold"
         >
           <Layers className="w-4 h-4 text-black" />
-          <span>PORTFOLIO</span>
+          <span>ПОРТФОЛИО</span>
         </button>
       </div>
 

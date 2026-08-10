@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { PRICING_TIERS, PROCESS_STEPS, CALCULATOR_OPTIONS } from '../../data/pricing';
+import { PRICING_TIERS, PROCESS_CATEGORIES, CALCULATOR_OPTIONS } from '../../data/pricing';
 import { WindowId } from '../../types';
-import { Check, Calculator, Clock, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { Check, Calculator, Clock, ArrowUpRight, ShieldCheck, Layers } from 'lucide-react';
 
 interface PricingWindowProps {
   onOpenWindow: (id: WindowId) => void;
@@ -9,10 +9,11 @@ interface PricingWindowProps {
 
 export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) => {
   const [activeTab, setActiveTab] = useState<'tiers' | 'process' | 'calculator'>('tiers');
+  const [selectedProcessCategory, setSelectedProcessCategory] = useState<string>('graphic_design');
 
   // Calculator State
-  const [selectedType, setSelectedType] = useState<string>('landing');
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(['motion', 'cms']);
+  const [selectedType, setSelectedType] = useState<string>('interior3d');
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(['blueprints']);
   const [selectedTimeline, setSelectedTimeline] = useState<string>('standard');
 
   // Compute total
@@ -54,7 +55,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
               : 'border-transparent text-zinc-500 hover:text-black'
           }`}
         >
-          [01] TIERS & SERVICES
+          [01] ТАРИФЫ И УСЛУГИ
         </button>
         <button
           onClick={() => setActiveTab('calculator')}
@@ -65,7 +66,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
           }`}
         >
           <Calculator className="w-3.5 h-3.5 text-black" />
-          <span>[02] CALCULATOR</span>
+          <span>[02] КАЛЬКУЛЯТОР</span>
         </button>
         <button
           onClick={() => setActiveTab('process')}
@@ -75,14 +76,14 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
               : 'border-transparent text-zinc-500 hover:text-black'
           }`}
         >
-          [03] PROCESS
+          [03] ЭТАПЫ РАБОТЫ
         </button>
       </div>
 
       {/* Tiers Tab */}
       {activeTab === 'tiers' && (
         <div className="space-y-6 font-sans">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {PRICING_TIERS.map((tier) => (
               <div
                 key={tier.id}
@@ -94,7 +95,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
               >
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white font-bold text-[10px] uppercase font-mono px-3 py-0.5 rounded-full shadow-lg">
-                    RECOMMENDED
+                    РЕКОМЕНДУЕМ
                   </div>
                 )}
 
@@ -108,12 +109,12 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
                     <div className="text-2xl font-black text-black">{tier.priceFrom}</div>
                     <div className="text-xs text-zinc-500 flex items-center gap-1 mt-0.5 font-medium">
                       <Clock className="w-3.5 h-3.5 text-zinc-700" />
-                      <span>Est: {tier.duration}</span>
+                      <span>Срок: {tier.duration}</span>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <div className="text-[10px] font-bold text-black uppercase tracking-widest font-mono">// INCLUDED:</div>
+                    <div className="text-[10px] font-bold text-black uppercase tracking-widest font-mono">// ВХОДИТ В СТОИМОСТЬ:</div>
                     <ul className="space-y-2 text-xs text-zinc-700">
                       {tier.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2">
@@ -134,7 +135,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
                         : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-200'
                     }`}
                   >
-                    SELECT TIER
+                    ВЫБРАТЬ ТАРИФ
                   </button>
                 </div>
 
@@ -146,7 +147,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
           <div className="bg-zinc-50 border border-zinc-200 p-4 rounded-xl flex items-center gap-3 text-xs text-zinc-700">
             <ShieldCheck className="w-5 h-5 text-black flex-shrink-0" />
             <div className="font-sans">
-              <span className="font-mono font-bold text-black uppercase">GUARANTEE:</span> Все этапы и сметы фиксируются в договоре. Оплата 50% предоплата / 50% после запуска.
+              <span className="font-mono font-bold text-black uppercase">ГАРАНТИЯ:</span> Все этапы и сметы фиксируются в договоре. Оплата 50% предоплата / 50% после запуска.
             </div>
           </div>
         </div>
@@ -160,7 +161,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
             {/* Step 1: Type */}
             <div className="space-y-3 font-mono">
               <label className="text-xs font-bold text-black uppercase tracking-widest">
-                [01] SELECT PROJECT TYPE:
+                [01] ВЫБЕРИТЕ ТИП ПРОЕКТА:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {CALCULATOR_OPTIONS.types.map((t) => (
@@ -175,7 +176,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
                   >
                     <div>
                       <div className="font-bold text-xs sm:text-sm">{t.label}</div>
-                      <div className={`text-[11px] font-mono mt-0.5 ${selectedType === t.id ? 'text-zinc-300' : 'text-zinc-500'}`}>from {t.basePrice.toLocaleString()} ₽</div>
+                      <div className={`text-[11px] font-mono mt-0.5 ${selectedType === t.id ? 'text-zinc-300' : 'text-zinc-500'}`}>от {t.basePrice.toLocaleString()} ₽</div>
                     </div>
                     {selectedType === t.id && <Check className="w-4 h-4 text-white" />}
                   </button>
@@ -186,7 +187,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
             {/* Step 2: Features */}
             <div className="space-y-3 font-mono">
               <label className="text-xs font-bold text-black uppercase tracking-widest">
-                [02] ADDITIONAL OPTIONS:
+                [02] ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {CALCULATOR_OPTIONS.features.map((f) => {
@@ -217,7 +218,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
             {/* Step 3: Speed */}
             <div className="space-y-3 font-mono">
               <label className="text-xs font-bold text-black uppercase tracking-widest">
-                [03] TIMELINE / SPEED:
+                [03] СРОКИ И СКОРОСТЬ:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {CALCULATOR_OPTIONS.timelines.map((tl) => (
@@ -240,13 +241,13 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
             {/* Total Result Summary */}
             <div className="pt-4 border-t border-zinc-200 flex flex-col sm:flex-row justify-between items-center gap-4 bg-white border border-zinc-200 p-4 rounded-xl shadow-sm">
               <div className="space-y-1 text-center sm:text-left font-mono">
-                <div className="text-xs text-zinc-500 font-bold">ESTIMATED BUDGET:</div>
+                <div className="text-xs text-zinc-500 font-bold">РАСЧЕТНАЯ СМЕТА:</div>
                 <div className="text-2xl sm:text-3xl font-black text-black">
                   ~ {totalPrice.toLocaleString()} ₽
                 </div>
                 <div className="text-xs text-zinc-600 flex items-center justify-center sm:justify-start gap-1 font-medium">
                   <Clock className="w-3.5 h-3.5 text-black" />
-                  <span>Timeline: ~{totalDays} business days</span>
+                  <span>Срок: ~{totalDays} рабочих дней</span>
                 </div>
               </div>
 
@@ -254,7 +255,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
                 onClick={() => onOpenWindow('contacts')}
                 className="w-full sm:w-auto bg-black hover:bg-zinc-800 text-white font-mono font-bold text-xs px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
-                <span>SEND ESTIMATE</span>
+                <span>ОТПРАВИТЬ СМЕТУ</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
@@ -265,32 +266,65 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
 
       {/* Process Tab */}
       {activeTab === 'process' && (
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {PROCESS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="bg-white border border-zinc-200 rounded-xl p-5 space-y-3 hover:border-black transition-colors shadow-sm"
+        <div className="space-y-5">
+          {/* Discipline Selector */}
+          <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-100 rounded-xl border border-zinc-200">
+            {PROCESS_CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedProcessCategory(cat.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                  selectedProcessCategory === cat.id
+                    ? 'bg-black text-white shadow-sm'
+                    : 'text-zinc-600 hover:text-black hover:bg-zinc-200/60'
+                }`}
               >
-                <div className="flex items-center justify-between font-mono">
-                  <span className="text-2xl font-black text-black">{step.step}</span>
-                  <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">PHASE</span>
-                </div>
-                <h3 className="font-bold text-base text-black">{step.title}</h3>
-                <p className="text-xs text-zinc-600 leading-relaxed font-normal">{step.description}</p>
-                <div className="pt-2 border-t border-zinc-100 space-y-1 font-mono">
-                  <div className="text-[10px] text-zinc-500 font-bold uppercase">DELIVERABLES:</div>
-                  <div className="flex flex-wrap gap-1">
-                    {step.deliverables.map((d, idx) => (
-                      <span key={idx} className="text-[10px] bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded border border-zinc-200">
-                        • {d}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                <Layers className="w-3.5 h-3.5" />
+                <span>{cat.categoryTitle}</span>
+              </button>
             ))}
           </div>
+
+          {/* Current Category Banner */}
+          {(() => {
+            const currentCat = PROCESS_CATEGORIES.find(c => c.id === selectedProcessCategory) || PROCESS_CATEGORIES[0];
+            return (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-zinc-200 pb-2">
+                  <h3 className="font-extrabold text-black font-sans text-lg">{currentCat.categoryTitle}</h3>
+                  <span className="text-[10px] font-mono font-bold bg-zinc-900 text-white px-2.5 py-0.5 rounded-full">
+                    {currentCat.badge}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {currentCat.steps.map((step) => (
+                    <div
+                      key={step.step}
+                      className="bg-white border border-zinc-200 rounded-xl p-5 space-y-3 hover:border-black transition-colors shadow-sm"
+                    >
+                      <div className="flex items-center justify-between font-mono">
+                        <span className="text-2xl font-black text-black">{step.step}</span>
+                        <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">ЭТАП</span>
+                      </div>
+                      <h3 className="font-bold text-base text-black font-sans">{step.title}</h3>
+                      <p className="text-xs text-zinc-600 leading-relaxed font-normal">{step.description}</p>
+                      <div className="pt-2 border-t border-zinc-100 space-y-1 font-mono">
+                        <div className="text-[10px] text-zinc-500 font-bold uppercase">РЕЗУЛЬТАТЫ:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {step.deliverables.map((d, idx) => (
+                            <span key={idx} className="text-[10px] bg-zinc-100 text-zinc-800 px-2 py-0.5 rounded border border-zinc-200 font-medium">
+                              • {d}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
         </div>
       )}
 

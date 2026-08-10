@@ -5,7 +5,6 @@ import { WindowId } from '../types';
 interface DesktopFolderProps {
   id: WindowId;
   label: string;
-  badge?: number | string;
   onOpen: (id: WindowId) => void;
   isOpen?: boolean;
 }
@@ -13,7 +12,6 @@ interface DesktopFolderProps {
 export const DesktopFolder: React.FC<DesktopFolderProps> = ({
   id,
   label,
-  badge,
   onOpen,
   isOpen = false,
 }) => {
@@ -44,13 +42,6 @@ export const DesktopFolder: React.FC<DesktopFolderProps> = ({
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-black" />
           )}
         </div>
-
-        {/* Monospace Notification Badge */}
-        {badge !== undefined && (
-          <div className="absolute -top-1 -right-1 bg-black text-white font-mono font-bold text-[10px] min-w-[18px] h-4 px-1 rounded-full flex items-center justify-center border border-white shadow-md">
-            {badge}
-          </div>
-        )}
       </div>
 
       {/* Folder Monospace Label */}

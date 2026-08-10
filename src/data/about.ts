@@ -1,68 +1,100 @@
 import { SkillCategory } from '../types';
 
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  badge: string;
+  avatar: string;
+  education?: string;
+  specialties: string[];
+  bio: string;
+}
+
 export const ABOUT_INFO = {
-  name: 'Ильнур',
-  role: 'Веб-дизайнер & Фронтенд разработчик',
-  tagline: 'Создаю веб-сайты, которые выделяются из массы, приносят результат и вызывают эмоции.',
-  location: 'Казань / Удаленно по всему миру',
-  experienceYears: 1,
-  projectsCompleted: 5,
+  name: 'VREYMA.STUDIO',
+  role: 'Дуэт инженеров & 3D/Графических дизайнеров',
+  avatar: '/src/photo_2026-08-07_22-56-44.jpg',
+  tagline: 'Камерная цифровая студия из двух специалистов. Объединяем веб-архитектуру, 3D интерьеры, чертежи и макеты помещений, фэшн-визуализацию и полный спектр графического дизайна.',
+  location: 'Удаленно по всему миру',
+  teamMembers: [
+    {
+      id: 'lead-dev',
+      name: 'Основатель & Lead Developer',
+      role: 'Веб-архитектор • 3D WebGL • Telegram Apps',
+      badge: 'Fullstack & 3D Engineer',
+      avatar: '/src/photo_2026-08-07_22-56-44.jpg',
+      specialties: [
+        'Премиум веб-сайты',
+        'Интерактивные 3D-интерфейсы',
+        '3D макеты одежды & Fashion',
+        'Telegram Mini Apps под ключ'
+      ],
+      bio: 'Отвечает за техническую архитектуру цифровых продуктов, разработку сложной WebGL/3D интерактивности, 3D макетов одежды для бренд-коммуникаций и экосистемных Telegram Mini Apps.'
+    },
+    {
+      id: 'graphic-designer',
+      name: '3D & Графический Дизайнер',
+      role: '3D Интерьеры • Графический дизайн во всех сферах • Чертежи',
+      badge: '3D Interior & Graphic Designer',
+      avatar: '/images/photo_2026-04-21_17-10-58.jpg',
+      education: 'Выпускница ККАСиЦТ',
+      specialties: [
+        '3D макеты & визуализация интерьеров',
+        'Разработка чертежей и планировок',
+        'Графический дизайн во всех сферах',
+        'Фирменный стиль, брендинг и айдентика',
+        'Визуальные коммуникации и полиграфия'
+      ],
+      bio: 'Выпускница колледжа ККАСиЦТ. Специализируется на 3D-проектировании и объёмных макетах помещений, планировках и чертежах, а также полном спектре графического дизайна, айдентики и веб-графики во всех направлениях.'
+    }
+  ] as TeamMember[],
   bio: [
-    'Привет! Я Ильнур — фуллстек веб-дизайнер и фронтенд-разработчик. Создаю современные цифровые продукты с акцентом на эстетичную типографику, быстрый отклик и выразительную микро-анимацию.',
-    'Мой подход совмещает глубину проектирования интерфейсов (UX), эстетическое чутье (UI) и техническое совершенство в коде. Я не просто рисую красивую картинку, а строю рабочие системы с конверсией.',
-    'Свободно работаю как с аккуратным продуктовым веб-дизайном, так и со сложными интерактивными 3D-сайтами, WebGL и веб-приложениями.'
+    'VREYMA.STUDIO — это компактная студия из двух профильных специалистов, работающая напрямую без лишних посредников.',
+    'Мы закрываем полный цикл задач: от проектирования архитектуры 3D интерьеров, чертежей и макетов помещений до сложной веб-разработки, 3D-анимаций, графического дизайна во всех сферах и Telegram Mini Apps.'
   ],
   stats: [
-    { label: 'Лет опыта', value: '1+' },
-    { label: 'Завершенных проектов', value: '5+' },
-    { label: 'Удовлетворенность клиентов', value: '100%' },
-    { label: 'Awwwards / Red Dot', value: '12 Наград' }
+    { label: 'Команда', value: '2 эксперта' },
+    { label: 'Проектов', value: '5+' },
+    { label: 'Качество', value: '100%' },
+    { label: 'Поддержка', value: '24/7' }
   ]
 };
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Design & Prototyping',
+    title: '3D Интерьеры & Графический Дизайнер (ККАСиЦТ)',
     skills: [
-      { name: 'UI/UX Design', level: 98 },
-      { name: 'Figma & Design Systems', level: 95 },
-      { name: 'Motion & Micro-interactions', level: 90 },
-      { name: '3D Modelling (Spline / Blender)', level: 82 },
-      { name: 'Typography & Visual Grid', level: 96 }
+      { name: '3D макеты помещений & Интерьеры', level: 98 },
+      { name: 'Чертежи планировок & Расстановка', level: 96 },
+      { name: 'Графический дизайн во всех сферах', level: 98 },
+      { name: 'Визуальные концепции & Айдентика', level: 95 }
     ]
   },
   {
-    title: 'Frontend & Code',
+    title: 'Веб & 3D Разработка',
     skills: [
-      { name: 'React / Next.js / TypeScript', level: 95 },
-      { name: 'Tailwind CSS / Shader FX', level: 98 },
-      { name: 'Framer Motion / GSAP', level: 92 },
-      { name: 'Three.js / WebGL / Canvas', level: 80 },
-      { name: 'Node.js & Express / REST API', level: 85 }
+      { name: 'Минималистичные премиум-сайты', level: 98 },
+      { name: 'Интерактивные 3D-интерфейсы', level: 95 },
+      { name: 'Продуктовый UX & Безупречная типографика', level: 98 },
+      { name: 'React / Next.js / TypeScript / WebGL', level: 95 }
     ]
   },
   {
-    title: 'Tools & Ecosystem',
+    title: '3D & ИИ Контент для брендов одежды',
     skills: [
-      { name: 'Webflow & No-code Engine', level: 90 },
-      { name: 'Git / GitHub Workflow', level: 88 },
-      { name: 'SEO & Performance tuning', level: 94 },
-      { name: 'Vite & Build pipelines', level: 90 }
+      { name: 'Разработка 3D макетов одежды', level: 96 },
+      { name: 'Создание 3D рекламы & Моушн', level: 92 },
+      { name: 'ИИ контент для фэшн-брендов', level: 94 }
+    ]
+  },
+  {
+    title: 'Telegram Экосистема под ключ',
+    skills: [
+      { name: 'Telegram Mini Apps (TMA)', level: 96 },
+      { name: 'Telegram-магазины с оплатой', level: 95 },
+      { name: 'Управляющие боты & Интеграция CRM', level: 92 }
     ]
   }
 ];
 
-export const TESTIMONIALS = [
-  {
-    author: 'Александр Громов',
-    company: 'Основатель Aura Digital',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
-    text: 'Ильнур сделал сайт, который перевернул представление нашей компании о дизайне. Конверсия выросла почти в полтора раза за первый же месяц.'
-  },
-  {
-    author: 'Елена Белова',
-    company: 'Арт-директор LUMEN',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop',
-    text: 'Невероятная скорость работы, высочайшее чувство стиля и внимание к мелочам. Все анимации идеальны до пикселя!'
-  }
-];

@@ -6,6 +6,13 @@
     background-color: #ffffff;
     color: #09090b;
     overflow-x: hidden;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  ::selection {
+    background-color: #000000;
+    color: #ffffff;
   }
   
   code, pre, .font-mono {
@@ -15,18 +22,20 @@
 
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.04);
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 9999px;
   }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.4);
+    border-radius: 9999px;
+    border: 2px solid #ffffff;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7);
   }
 
   /* xsai white background grid */

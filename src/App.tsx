@@ -3,7 +3,7 @@ import { WindowId, WindowState } from './types';
 import { TopNavbar } from './components/TopNavbar';
 import { HeroCard } from './components/HeroCard';
 import { DesktopFolder } from './components/DesktopFolder';
-import { DockBar } from './components/DockBar';
+import { DockBar } from './components/Windows/DockBar';
 import { WindowWrapper } from './components/Windows/WindowWrapper';
 import { AboutWindow } from './components/Windows/AboutWindow';
 import { WorksWindow } from './components/Windows/WorksWindow';
@@ -15,23 +15,23 @@ import { PrivacyTermsWindow } from './components/Windows/PrivacyTermsWindow';
 import { TrashWindow } from './components/Windows/TrashWindow';
 import { WindowsActivation } from './components/WindowsActivation';
 
-import bgImage from './assets/images/studio_background_1785779557640.jpg';
+const bgImage = encodeURI('/Group 12.png');
 
 export default function App() {
   const [windows, setWindows] = useState<Record<WindowId, WindowState>>({
-    about: { id: 'about', title: 'ОБО МНЕ — Профиль и навыки.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
+    about: { id: 'about', title: 'О НАС — Команда и компетенции.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     works: { id: 'works', title: 'РАБОТЫ — Портфолио проектов.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     pricing: { id: 'pricing', title: 'ПРОЦЕСС И ЦЕНЫ — Калькулятор сметы.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     contacts: { id: 'contacts', title: 'КОНТАКТЫ — Экспресс-бриф и связь.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     notes: { id: 'notes', title: 'Заметки студии.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     music: { id: 'music', title: 'Lo-Fi Музыкальный плеер.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     trash: { id: 'trash', title: 'Корзина (Черновики).app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
-    privacy: { id: 'privacy', title: 'Privacy Policy.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
-    terms: { id: 'terms', title: 'Terms of Service.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
+    privacy: { id: 'privacy', title: 'Политика конфиденциальности.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
+    terms: { id: 'terms', title: 'Условия использования.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } },
     activation: { id: 'activation', title: 'Активация Windows.app', isOpen: false, isMinimized: false, isMaximized: false, zIndex: 10, position: { x: 0, y: 0 } }
   });
 
-  const [highestZ, setHighestZ] = useState<number>(20);
+  const [highestZ, setHighestZ] = useState<number>(30);
   const [isMuted, setIsMuted] = useState<boolean>(true);
 
   const openWindow = (id: WindowId) => {
@@ -95,19 +95,17 @@ export default function App() {
   );
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden select-none bg-white font-sans text-zinc-900">
+    <div className="relative w-screen h-screen overflow-hidden bg-white font-sans text-zinc-900">
       
-      {/* Light Grid Background & Collage */}
-      <div className="absolute inset-0 z-0 bg-white bg-xsai-grid-light">
-        <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 lg:w-1/2 overflow-hidden pointer-events-none flex items-center justify-end pr-4 sm:pr-8 pt-20">
-          <img 
-            src={bgImage} 
-            alt="Studio Background" 
-            className="w-full h-auto object-contain mix-blend-multiply opacity-100"
-          />
-        </div>
-        {/* Subtle top light gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-100/60 via-transparent to-zinc-50/80 pointer-events-none" />
+      {/* Studio Graphic Background */}
+      <div className="absolute inset-0 z-0 bg-white flex items-center justify-center sm:justify-end overflow-hidden sm:pr-6 md:pr-12 lg:pr-16">
+        <img
+          src={bgImage}
+          alt="Studio Background"
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-contain max-w-5xl scale-[1.15] translate-x-12 sm:translate-x-24 md:translate-x-36 lg:translate-x-48 opacity-90 pointer-events-none select-none transition-all duration-300"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40 pointer-events-none" />
       </div>
 
       {/* Top Floating OS Status & Navigation Header */}
@@ -135,7 +133,7 @@ export default function App() {
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-6 sm:gap-10 w-full lg:w-auto my-auto">
             <DesktopFolder
               id="about"
-              label="ОБО МНЕ"
+              label="О НАС"
               onOpen={openWindow}
               isOpen={windows.about.isOpen}
             />
@@ -143,7 +141,6 @@ export default function App() {
             <DesktopFolder
               id="works"
               label="РАБОТЫ"
-              badge={7}
               onOpen={openWindow}
               isOpen={windows.works.isOpen}
             />
@@ -151,7 +148,6 @@ export default function App() {
             <DesktopFolder
               id="pricing"
               label="ПРОЦЕСС И ЦЕНЫ"
-              badge={1}
               onOpen={openWindow}
               isOpen={windows.pricing.isOpen}
             />
@@ -172,12 +168,22 @@ export default function App() {
       <DockBar
         onOpenWindow={openWindow}
         activeWindows={activeWindowIds}
-        onOpenTelegram={() => window.open('https://t.me/ilnur_studio', '_blank')}
+        onOpenTelegram={() => window.open('https://t.me/Djambovic', '_blank')}
         onOpenInstagram={() => window.open('https://instagram.com', '_blank')}
       />
 
       {/* Windows Activation Watermark & Easter Egg Modal */}
       <WindowsActivation />
+
+      {/* Dimmed backdrop overlay when window is active to separate from desktop */}
+      {activeWindowIds.length > 0 && (
+        <div 
+          onClick={() => {
+            // Focus desktop or do nothing
+          }}
+          className="fixed inset-0 z-20 bg-black/15 backdrop-blur-[2px] transition-all duration-300 pointer-events-none"
+        />
+      )}
 
       {/* Desktop Windows System */}
       <WindowWrapper

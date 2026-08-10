@@ -14,12 +14,12 @@ export interface WindowState {
 export interface Project {
   id: string;
   title: string;
-  category: 'Landing' | 'E-commerce' | 'Web App' | '3D & Motion' | 'Branding';
+  category: '3D & Motion' | 'Telegram Mini App' | 'Web App' | 'Landing' | 'E-commerce' | 'Branding' | string;
   description: string;
   longDescription: string;
   image: string;
+  video?: string;
   gallery?: string[];
-  videos?: string[];
   tags: string[];
   year: string;
   client: string;

@@ -35,37 +35,41 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
     return () => clearInterval(timer);
   }, []);
 
+  if (activeWindows.length > 0) {
+    return null;
+  }
+
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
       <div className="bg-white/90 backdrop-blur-xl border border-zinc-200 text-zinc-900 rounded-2xl px-5 py-3 flex items-center justify-between shadow-xl shadow-black/5">
         
         {/* Brand & Monospace Tag */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <button
             onClick={() => onOpenWindow('about')}
-            className="flex items-center gap-2.5 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer whitespace-nowrap"
           >
-            <div className="w-2.5 h-2.5 rounded-full bg-black group-hover:scale-125 transition-all" />
-            <span className="font-mono font-extrabold tracking-widest text-sm text-black group-hover:opacity-70 transition-opacity">
+            <div className="w-2.5 h-2.5 rounded-full bg-black group-hover:scale-125 transition-all flex-shrink-0" />
+            <span className="font-mono font-extrabold tracking-widest text-sm text-black group-hover:opacity-70 transition-opacity whitespace-nowrap">
               VREYMA.STUDIO
             </span>
-            <span className="hidden sm:inline-block font-mono text-[10px] text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded">
+            <span className="hidden xl:inline-block font-mono text-[10px] text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded whitespace-nowrap">
               v2.5.0
             </span>
           </button>
 
           {/* Quick Legal Links */}
-          <div className="hidden lg:flex items-center gap-3 ml-2 pl-4 border-l border-zinc-200 font-mono text-xs text-zinc-400">
+          <div className="hidden lg:flex items-center gap-2 ml-1 pl-3 border-l border-zinc-200 font-mono text-xs text-zinc-400 whitespace-nowrap">
             <button 
               onClick={onOpenPrivacy}
-              className="hover:text-black transition-colors cursor-pointer"
+              className="hover:text-black transition-colors cursor-pointer whitespace-nowrap"
             >
               /политика
             </button>
             <span>/</span>
             <button 
               onClick={onOpenTerms}
-              className="hover:text-black transition-colors cursor-pointer"
+              className="hover:text-black transition-colors cursor-pointer whitespace-nowrap"
             >
               /условия
             </button>
@@ -73,57 +77,57 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
         </div>
 
         {/* Minimal Center Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 font-mono text-xs tracking-wider">
+        <nav className="hidden md:flex items-center gap-3 lg:gap-5 font-mono text-xs tracking-wider whitespace-nowrap flex-shrink-0">
           <button
             onClick={() => onOpenWindow('works')}
-            className={`transition-all cursor-pointer flex items-center gap-2 py-1 ${
+            className={`transition-all cursor-pointer flex items-center gap-1.5 py-1 whitespace-nowrap flex-shrink-0 ${
               activeWindows.includes('works')
                 ? 'text-black border-b-2 border-black font-bold'
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[01] РАБОТЫ</span>
+            <span className="whitespace-nowrap">[01] РАБОТЫ</span>
           </button>
 
           <button
             onClick={() => onOpenWindow('pricing')}
-            className={`transition-all cursor-pointer flex items-center gap-2 py-1 ${
+            className={`transition-all cursor-pointer flex items-center gap-1.5 py-1 whitespace-nowrap flex-shrink-0 ${
               activeWindows.includes('pricing')
                 ? 'text-black border-b-2 border-black font-bold'
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[02] ЦЕНЫ</span>
+            <span className="whitespace-nowrap">[02] ЦЕНЫ</span>
           </button>
 
           <button
             onClick={() => onOpenWindow('contacts')}
-            className={`transition-all cursor-pointer flex items-center gap-1.5 py-1 ${
+            className={`transition-all cursor-pointer flex items-center gap-1.5 py-1 whitespace-nowrap flex-shrink-0 ${
               activeWindows.includes('contacts')
                 ? 'text-black border-b-2 border-black font-bold'
                 : 'text-zinc-500 hover:text-black'
             }`}
           >
-            <span>[03] КОНТАКТЫ</span>
+            <span className="whitespace-nowrap">[03] КОНТАКТЫ</span>
           </button>
         </nav>
 
         {/* Right Status & Controls */}
-        <div className="flex items-center gap-3 font-mono text-xs">
+        <div className="flex items-center gap-2 sm:gap-3 font-mono text-xs whitespace-nowrap flex-shrink-0">
           {/* Availability Status */}
-          <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-300 px-3 py-1 rounded-full text-zinc-900 text-[11px] font-bold">
-            <span className="relative flex h-2 w-2">
+          <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-300 px-2.5 sm:px-3 py-1 rounded-full text-zinc-900 text-[11px] font-bold whitespace-nowrap flex-shrink-0">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span className="hidden sm:inline font-mono tracking-tight">СВОБОДЕН ДЛЯ ПРОЕКТОВ</span>
-            <span className="sm:hidden font-mono">ONLINE</span>
+            <span className="hidden lg:inline font-mono tracking-tight whitespace-nowrap">СВОБОДЕН ДЛЯ ПРОЕКТОВ</span>
+            <span className="lg:hidden font-mono whitespace-nowrap">СВОБОДЕН</span>
           </div>
 
           {/* Audio toggle */}
           <button
             onClick={onToggleMute}
-            title={isMuted ? 'Turn Sound On' : 'Turn Sound Off'}
+            title={isMuted ? 'Включить звук' : 'Выключить звук'}
             className="p-1.5 rounded-lg bg-zinc-100 border border-zinc-200 hover:bg-zinc-200 text-zinc-600 hover:text-black transition-colors cursor-pointer"
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5 text-zinc-400" /> : <Volume2 className="w-3.5 h-3.5 text-black" />}
@@ -154,8 +158,8 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
             }}
             className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
           >
-            <span className="text-black font-bold">[00] ABOUT ME</span>
-            <span className="text-[10px] text-zinc-400">profile.app</span>
+            <span className="text-black font-bold">[00] О НАС</span>
+            <span className="text-[10px] text-zinc-400">профиль.app</span>
           </button>
           <button
             onClick={() => {
@@ -164,10 +168,7 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
             }}
             className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
           >
-            <span className="text-black font-bold">[01] WORKS</span>
-            <span className="bg-black text-white text-[10px] px-2 py-0.5 rounded font-bold">
-              7 Projects
-            </span>
+            <span className="text-black font-bold">[01] РАБОТЫ</span>
           </button>
           <button
             onClick={() => {
@@ -176,8 +177,8 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
             }}
             className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
           >
-            <span className="text-black font-bold">[02] PROCESS & PRICING</span>
-            <span className="text-[10px] text-zinc-500">Calculator</span>
+            <span className="text-black font-bold">[02] ПРОЦЕСС И ЦЕНЫ</span>
+            <span className="text-[10px] text-zinc-500">Калькулятор</span>
           </button>
           <button
             onClick={() => {
@@ -186,12 +187,12 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
             }}
             className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
           >
-            <span className="text-black font-bold">[03] CONTACTS</span>
-            <span className="text-[10px] text-emerald-600 font-bold">Direct Message</span>
+            <span className="text-black font-bold">[03] КОНТАКТЫ</span>
+            <span className="text-[10px] text-emerald-600 font-bold">Прямая связь</span>
           </button>
           <div className="pt-2 border-t border-zinc-200 flex justify-around text-[10px] text-zinc-500">
-            <button onClick={() => { onOpenPrivacy(); setMobileMenuOpen(false); }}>/privacy</button>
-            <button onClick={() => { onOpenTerms(); setMobileMenuOpen(false); }}>/terms</button>
+            <button onClick={() => { onOpenPrivacy(); setMobileMenuOpen(false); }}>/политика</button>
+            <button onClick={() => { onOpenTerms(); setMobileMenuOpen(false); }}>/условия</button>
           </div>
         </div>
       )}

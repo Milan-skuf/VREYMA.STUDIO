@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import { FileText, Save, Check } from 'lucide-react';
 
 export const NotesWindow: React.FC = () => {
-  const [noteText, setNoteText] = useState<string>(`// ILNUR.STUDIO — ENGINEERING NOTES & DESIGN MANIFESTO
+  const [noteText, setNoteText] = useState<string>(`// VREYMA.STUDIO — ИНЖЕНЕРНЫЕ ЗАМЕТКИ И МАНИФЕСТ СТУДИИ
 
-1. ANIMATIONS: Fluid physics, responsive micro-interactions (cubic-bezier & spring timing).
-2. TYPOGRAPHY: Strict JetBrains Mono & Plus Jakarta Sans hierarchy, precise line-heights.
-3. PERFORMANCE: Sub-second initial render times, zero unneeded renders, lightweight WebGL.
-4. TOUCH FIRST: Flawless touch target scaling & gesture control on mobile devices.
+1. МИНИМАЛИЗМ И ТИПОГРАФИКА: Чистая визуальная сетка, безупречный продуктовый UX и глубокая работа с шрифтами.
+2. 3D ИНТЕРЬЕРЫ, ЧЕРТЕЖИ & ГРАФ. ДИЗАЙН: Объемные 3D макеты помещений, планировки и весь спектр графического дизайна.
+3. 3D И ИИ ДЛЯ ФЭШН: Разработка 3D макетов одежды, 3D реклама и генеративный ИИ-контент для брендов.
+4. TELEGRAM ECOSYSTEM: Нативные Telegram Mini Apps, Telegram-магазины с онлайн-оплатой и управляющие боты под ключ.
+5. ПРОИЗВОДИТЕЛЬНОСТЬ: Мгновенный рендеринг, оптимизированные 3D-модели и чистая адаптивная верстка.
 
-// ACTIVE ROADMAP:
-[x] Refactor UI architecture to match xsai.vision aesthetic
-[x] Monospaced system controls & high-contrast light layout
-[ ] Launch 3D interactive shader showcase
-[ ] Finalize client case study breakdowns`);
+// ТЕКУЩИЙ ПЛАН РАЗВИТИЯ:
+[x] Обновить концепт цифровой студии VREYMA.STUDIO
+[x] Внедрить сервисы по 3D макетам одежды и Telegram Mini Apps
+[ ] Добавить новые 3D-кейс демонстрации
+[ ] Интегрировать ИИ-генератор лукбуков для брендов`);
 
   const [saved, setSaved] = useState(false);
 
@@ -27,7 +28,7 @@ export const NotesWindow: React.FC = () => {
       <div className="flex justify-between items-center bg-zinc-50 p-3 rounded-xl border border-zinc-200">
         <div className="flex items-center gap-2 text-xs text-black font-bold">
           <FileText className="w-4 h-4 text-black" />
-          <span>developer_notes.txt</span>
+          <span>заметки_разработчика.txt</span>
         </div>
         <button
           onClick={handleSave}
@@ -36,12 +37,12 @@ export const NotesWindow: React.FC = () => {
           {saved ? (
             <>
               <Check className="w-3.5 h-3.5 text-white" />
-              <span>SAVED</span>
+              <span>СОХРАНЕНО</span>
             </>
           ) : (
             <>
               <Save className="w-3.5 h-3.5" />
-              <span>SAVE</span>
+              <span>СОХРАНИТЬ</span>
             </>
           )}
         </button>

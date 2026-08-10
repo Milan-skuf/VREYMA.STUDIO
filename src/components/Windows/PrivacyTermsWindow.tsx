@@ -11,19 +11,19 @@ export const PrivacyTermsWindow: React.FC<PrivacyTermsProps> = ({ type }) => {
       <div className="space-y-4 text-xs sm:text-sm text-zinc-700 leading-relaxed font-sans">
         <div className="flex items-center gap-2 text-black font-mono font-bold text-sm border-b border-zinc-200 pb-3">
           <ShieldCheck className="w-4 h-4 text-black" />
-          <span>PRIVACY POLICY // DATENSCHUTZ</span>
+          <span>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</span>
         </div>
         
-        <p>This Privacy Policy outlines how ILNUR.STUDIO collects, processes, and protects the data submitted during consultation and project estimation.</p>
+        <p>Настоящая Политика определяет порядок обработки и защиты персональных данных, передаваемых в VREYMA.STUDIO при заполнении формы брифа и запросе сметы.</p>
 
-        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[01] DATA COLLECTION</h4>
-        <p>We only collect information voluntarily provided in project brief forms (Name, Telegram handle, Email address, project specifications).</p>
+        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[01] СБОР ДАННЫХ</h4>
+        <p>Мы собираем только информацию, добровольно указанную вами в формах брифа (Имя, логин Telegram, Email, параметры и описание проекта).</p>
 
-        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[02] DATA USAGE</h4>
-        <p>Submitted information is strictly used to communicate regarding technical proposals, budget quotes, and milestones. No data is shared or sold to third parties.</p>
+        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[02] ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ</h4>
+        <p>Данные используются исключительно для подготовки коммерческого предложения, сметы и коммуникации по проекту. Мы никогда не передаем и не продаем данные третьим лицам.</p>
 
-        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[03] SECURITY STANDARDS</h4>
-        <p>All communication channels utilize encrypted protocols. We take technical measures to prevent unauthorized access.</p>
+        <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[03] БЕЗОПАСНОСТЬ</h4>
+        <p>Все каналы связи и обращения защищены. Мы принимаем необходимые организационные и технические меры для предотвращения несанкционированного доступа.</p>
       </div>
     );
   }
@@ -32,19 +32,19 @@ export const PrivacyTermsWindow: React.FC<PrivacyTermsProps> = ({ type }) => {
     <div className="space-y-4 text-xs sm:text-sm text-zinc-700 leading-relaxed font-sans">
       <div className="flex items-center gap-2 text-black font-mono font-bold text-sm border-b border-zinc-200 pb-3">
         <FileText className="w-4 h-4 text-black" />
-        <span>TERMS OF SERVICE // AGREEMENT</span>
+        <span>УСЛОВИЯ ОБСЛУЖИВАНИЯ И СОГЛАШЕНИЕ</span>
       </div>
 
-      <p>Welcome to ILNUR.STUDIO. By requesting digital design and development services, you agree to the following terms.</p>
+      <p>Добро пожаловать в VREYMA.STUDIO. Заказывая услуги по дизайну и веб-разработке, вы соглашаетесь со следующими условиями.</p>
 
-      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[01] INTELLECTUAL PROPERTY</h4>
-      <p>Upon 100% completion and final payment, full ownership rights for custom code, 3D assets, and UI design pass to the client.</p>
+      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[01] ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ</h4>
+      <p>После 100% оплаты проекта все права на созданный дизайн, уникальный код, 3D-графику и интерфейсы полностью переходят к заказчику.</p>
 
-      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[02] WARRANTY & SUPPORT</h4>
-      <p>All deployed projects include a 30-day post-launch warranty period for technical maintenance and bug fixes.</p>
+      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[02] ГАРАНТИЯ И ПОДДЕРЖКА</h4>
+      <p>На все разработанные проекты предоставляется 30 дней бесплатной гарантийной поддержки и исправления любых технических ошибок после запуска.</p>
 
-      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[03] PAYMENT SCHEDULE</h4>
-      <p>Standard payment terms: 50% initial deposit upon milestone acceptance and 50% upon final staging approval prior to production deployment.</p>
+      <h4 className="font-bold text-black font-mono uppercase text-xs pt-2">[03] ГРАФИК ОПЛАТЫ</h4>
+      <p>Стандартные условия работы: 50% предоплата перед началом проектирования и 50% после утверждения готового проекта перед переносом на ваш домен.</p>
     </div>
   );
 };

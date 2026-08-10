@@ -3,10 +3,10 @@ import { Play, Pause, SkipForward, SkipBack, Volume2, VolumeX, Music, Disc } fro
 import { Track } from '../../types';
 
 const TRACKS: Track[] = [
-  { id: '1', title: 'Midnight Coding Session', artist: 'ILNUR Lo-Fi Beats', duration: '2:45', genre: 'Chillhop' },
-  { id: '2', title: 'Kazan Rainy Studio', artist: 'Anime Lofi Vol. 2', duration: '3:10', genre: 'Ambient' },
-  { id: '3', title: 'Figma & Mechanical Keys', artist: 'Pixel Dreams', duration: '2:15', genre: 'Synthwave' },
-  { id: '4', title: 'Coffee & WebGL Shaders', artist: 'Chilled Cow Studio', duration: '3:35', genre: 'Lo-Fi Jazz' }
+  { id: '1', title: 'Ночная сессия кода', artist: 'ILNUR Lo-Fi Beats', duration: '2:45', genre: 'Chillhop' },
+  { id: '2', title: 'Дождливая студия в Казани', artist: 'Anime Lofi Vol. 2', duration: '3:10', genre: 'Ambient' },
+  { id: '3', title: 'Figma & Механика', artist: 'Pixel Dreams', duration: '2:15', genre: 'Synthwave' },
+  { id: '4', title: 'Кофе & WebGL Шейдеры', artist: 'Chilled Cow Studio', duration: '3:35', genre: 'Lo-Fi Jazz' }
 ];
 
 interface MusicPlayerWindowProps {
@@ -189,7 +189,7 @@ export const MusicPlayerWindow: React.FC<MusicPlayerWindowProps> = ({ isMuted, o
 
       {/* Track list */}
       <div className="space-y-2 font-mono">
-        <h4 className="text-xs font-bold text-black uppercase tracking-widest">// STUDIO PLAYLIST:</h4>
+        <h4 className="text-xs font-bold text-black uppercase tracking-widest">// ПЛЕЙЛИСТ СТУДИИ:</h4>
         <div className="space-y-1">
           {TRACKS.map((t, idx) => (
             <button
