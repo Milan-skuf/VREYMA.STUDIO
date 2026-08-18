@@ -95,7 +95,7 @@ export default function App() {
   );
 
   return (
-    <div className="relative w-full min-h-screen sm:h-screen overflow-x-hidden sm:overflow-hidden bg-white font-sans text-zinc-900 flex flex-col">
+    <div className="relative w-full min-h-screen sm:h-screen bg-white font-sans text-zinc-900 flex flex-col overflow-x-hidden sm:overflow-hidden">
       
       {/* Studio Graphic Background (Hidden on mobile per user request for a cleaner minimal look) */}
       <div className="hidden sm:flex absolute inset-0 z-0 bg-white items-center justify-end overflow-hidden sm:pr-6 md:pr-12 lg:pr-16">
@@ -119,7 +119,7 @@ export default function App() {
       />
 
       {/* Main Desktop Canvas Area */}
-      <main className="relative z-10 w-full flex-1 pt-16 sm:pt-20 pb-48 sm:pb-24 px-4 sm:px-8 flex flex-col justify-start sm:justify-between overflow-y-auto custom-scrollbar">
+      <main className="relative z-10 w-full flex-1 pt-16 sm:pt-20 pb-48 sm:pb-24 px-4 sm:px-8 flex flex-col justify-start sm:justify-between sm:overflow-y-auto custom-scrollbar">
         
         {/* Top Desktop Row: Hero Card & Desktop Folders */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8 max-w-7xl mx-auto w-full my-auto pb-12 sm:pb-0">
