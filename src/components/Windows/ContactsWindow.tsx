@@ -18,6 +18,19 @@ export const ContactsWindow: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const messageText = encodeURIComponent(
+      `👋 Новый бриф с VREYMA.STUDIO!\n\n` +
+      `👤 Имя: ${formData.name}\n` +
+      `💬 Контакт: ${formData.contact}\n` +
+      `📌 Тип проекта: ${formData.projectType}\n` +
+      `💰 Бюджет: ${formData.budget}` +
+      (formData.message ? `\n📝 Детали: ${formData.message}` : '')
+    );
+
+    // Open Telegram with pre-filled message directly to @Djambovic
+    window.open(`https://t.me/Djambovic?text=${messageText}`, '_blank');
+
     setTimeout(() => {
       setSubmitted(false);
       setFormData({
