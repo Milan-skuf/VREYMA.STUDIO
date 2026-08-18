@@ -9,14 +9,14 @@ export const WindowsActivation: React.FC = () => {
 
   return (
     <>
-      {/* Bottom Right Watermark (Exactly as in screenshot!) */}
+      {/* Bottom Right Watermark (Responsive position above dock bar on mobile) */}
       <div 
         onClick={() => setShowModal(true)}
-        className="fixed bottom-16 right-6 z-30 select-none text-right text-white/40 hover:text-white/80 transition-colors cursor-pointer group pointer-events-auto"
+        className="fixed bottom-20 sm:bottom-16 right-4 sm:right-6 z-30 select-none text-right text-white/40 hover:text-white/80 transition-colors cursor-pointer group pointer-events-auto"
         title="Нажмите для активации Windows"
       >
-        <div className="text-sm font-sans tracking-wide">Активация Windows</div>
-        <div className="text-[11px] font-sans leading-tight">
+        <div className="text-xs sm:text-sm font-sans tracking-wide">Активация Windows</div>
+        <div className="text-[10px] sm:text-[11px] font-sans leading-tight">
           Чтобы активировать Windows, перейдите в<br />раздел &quot;Параметры&quot;.
         </div>
       </div>

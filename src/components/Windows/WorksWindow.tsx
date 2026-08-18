@@ -87,13 +87,13 @@ export const WorksWindow: React.FC<WorksWindowProps> = ({ onOpenWindow }) => {
     <div className="space-y-6 font-sans text-zinc-900 select-text">
       
       {/* Category Filter Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-zinc-50 p-3 rounded-2xl border border-zinc-200 font-mono text-xs select-none">
-        <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex items-center justify-between gap-3 bg-zinc-50 p-2.5 sm:p-3 rounded-2xl border border-zinc-200 font-mono text-xs select-none overflow-x-auto custom-scrollbar">
+        <div className="flex items-center gap-1.5 whitespace-nowrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-xl transition-all cursor-pointer uppercase ${
+              className={`px-2.5 sm:px-3 py-1.5 rounded-xl transition-all cursor-pointer uppercase flex-shrink-0 text-[11px] sm:text-xs ${
                 selectedCategory === cat
                   ? 'bg-black text-white font-extrabold shadow-sm'
                   : 'bg-white text-zinc-700 hover:text-black hover:bg-zinc-100 border border-zinc-200'
@@ -104,7 +104,7 @@ export const WorksWindow: React.FC<WorksWindowProps> = ({ onOpenWindow }) => {
           ))}
         </div>
 
-        <div className="text-zinc-500 font-mono hidden sm:block">
+        <div className="text-zinc-500 font-mono hidden sm:block whitespace-nowrap">
           ВСЕГО: <span className="text-black font-extrabold">{filteredProjects.length}</span> ПРОЕКТОВ
         </div>
       </div>
@@ -193,22 +193,33 @@ export const WorksWindow: React.FC<WorksWindowProps> = ({ onOpenWindow }) => {
       {/* Detail Modal Overlay */}
       {activeProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
-          <div className="bg-white border border-zinc-200 text-zinc-900 rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto p-4 sm:p-6 pt-10 sm:pt-12 space-y-6 shadow-2xl relative animate-in zoom-in-95 duration-200">
+          <div className="bg-white border border-zinc-200 text-zinc-900 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[94vh] overflow-y-auto p-3.5 sm:p-6 pt-10 sm:pt-12 space-y-5 shadow-2xl relative animate-in zoom-in-95 duration-200">
             
-            <div className="absolute top-4 left-5 flex items-center gap-2 z-10">
+            {/* Top Close Controls */}
+            <div className="absolute top-3 left-4 flex items-center gap-2 z-10">
               <button
                 onClick={() => setActiveProject(null)}
-                className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors cursor-pointer"
+                className="w-4 h-4 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors cursor-pointer"
                 title="Закрыть проект"
               />
               <div className="w-3.5 h-3.5 rounded-full bg-amber-400" />
               <div className="w-3.5 h-3.5 rounded-full bg-emerald-400" />
             </div>
 
+            {/* Mobile prominent top-right close button */}
+            <button
+              onClick={() => setActiveProject(null)}
+              className="absolute top-3 right-4 p-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 rounded-full cursor-pointer z-10"
+              title="Закрыть"
+            >
+              <ChevronLeft className="w-4 h-4 hidden" />
+              <span className="font-mono text-xs font-bold px-1">✕</span>
+            </button>
+
             {/* Modal Media Showcase */}
             <div className="space-y-3">
               {/* Active Image / Video Viewport */}
-              <div className="relative group/view rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-950 flex items-center justify-center min-h-[260px] max-h-[550px]">
+              <div className="relative group/view rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-950 flex items-center justify-center min-h-[180px] max-h-[260px] sm:max-h-[550px]">
                 {isVideoUrl(activeImage || activeProject.video || activeProject.image) ? (
                   <video
                     key={activeImage || activeProject.video || activeProject.image}

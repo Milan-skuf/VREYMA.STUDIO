@@ -103,9 +103,9 @@ export default function App() {
           src={bgImage}
           alt="Studio Background"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-contain max-w-5xl scale-[1.15] translate-x-12 sm:translate-x-24 md:translate-x-36 lg:translate-x-48 opacity-90 pointer-events-none select-none transition-all duration-300"
+          className="w-full h-full object-contain max-w-5xl scale-100 sm:scale-[1.15] translate-x-0 sm:translate-x-24 md:translate-x-36 lg:translate-x-48 opacity-80 sm:opacity-90 pointer-events-none select-none transition-all duration-300"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/50 pointer-events-none" />
       </div>
 
       {/* Top Floating OS Status & Navigation Header */}
@@ -119,18 +119,18 @@ export default function App() {
       />
 
       {/* Main Desktop Canvas Area */}
-      <main className="relative z-10 w-full h-full pt-20 pb-24 px-4 sm:px-8 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+      <main className="relative z-10 w-full min-h-screen pt-16 sm:pt-20 pb-36 sm:pb-24 px-3 sm:px-8 flex flex-col justify-between overflow-y-auto custom-scrollbar">
         
         {/* Top Desktop Row: Hero Card & Desktop Folders */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 max-w-7xl mx-auto w-full">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8 max-w-7xl mx-auto w-full my-auto">
           
           {/* Main Hero Card (VREYMA.studio glass card) */}
-          <div className="w-full lg:w-auto mt-4 sm:mt-8">
+          <div className="w-full lg:w-auto mt-2 sm:mt-8">
             <HeroCard onOpenWindow={openWindow} />
           </div>
 
-          {/* Interactive Desktop Folders Row (Centered like in screenshot) */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-6 sm:gap-10 w-full lg:w-auto my-auto">
+          {/* Interactive Desktop Folders Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-items-center w-full lg:w-auto my-auto mt-4 mb-8 sm:my-auto">
             <DesktopFolder
               id="about"
               label="О НАС"

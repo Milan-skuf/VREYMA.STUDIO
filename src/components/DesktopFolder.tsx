@@ -45,7 +45,7 @@ export const DesktopFolder: React.FC<DesktopFolderProps> = ({
       </div>
 
       {/* Folder Monospace Label */}
-      <span className="text-[11px] font-mono font-bold text-zinc-800 group-hover:text-black tracking-widest uppercase transition-colors">
+      <span className="text-[10px] sm:text-[11px] font-mono font-bold text-zinc-900 group-hover:text-black tracking-widest uppercase transition-colors bg-white/85 backdrop-blur-md px-2 py-0.5 rounded-lg border border-zinc-200/80 shadow-xs max-w-full truncate">
         {label}
       </span>
     </button>

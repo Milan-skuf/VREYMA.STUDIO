@@ -45,11 +45,11 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
   return (
     <div className="space-y-6 font-sans text-zinc-900">
       
-      {/* Navigation Tabs */}
-      <div className="flex border-b border-zinc-200 font-mono text-xs">
+      {/* Sticky Navigation Tabs */}
+      <div className="sticky top-0 bg-white z-10 pt-1 pb-3 border-b border-zinc-200 font-mono text-xs flex items-center gap-1 overflow-x-auto whitespace-nowrap custom-scrollbar flex-nowrap sm:flex-wrap">
         <button
           onClick={() => setActiveTab('tiers')}
-          className={`pb-3 px-4 border-b-2 transition-colors cursor-pointer ${
+          className={`pb-2.5 sm:pb-3 px-3 sm:px-4 border-b-2 transition-colors cursor-pointer flex-shrink-0 ${
             activeTab === 'tiers'
               ? 'border-black text-black font-extrabold'
               : 'border-transparent text-zinc-500 hover:text-black'
@@ -59,7 +59,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
         </button>
         <button
           onClick={() => setActiveTab('calculator')}
-          className={`pb-3 px-4 border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 ${
+          className={`pb-2.5 sm:pb-3 px-3 sm:px-4 border-b-2 transition-colors cursor-pointer flex items-center gap-1.5 flex-shrink-0 ${
             activeTab === 'calculator'
               ? 'border-black text-black font-extrabold'
               : 'border-transparent text-zinc-500 hover:text-black'
@@ -70,7 +70,7 @@ export const PricingWindow: React.FC<PricingWindowProps> = ({ onOpenWindow }) =>
         </button>
         <button
           onClick={() => setActiveTab('process')}
-          className={`pb-3 px-4 border-b-2 transition-colors cursor-pointer ${
+          className={`pb-2.5 sm:pb-3 px-3 sm:px-4 border-b-2 transition-colors cursor-pointer flex-shrink-0 ${
             activeTab === 'process'
               ? 'border-black text-black font-extrabold'
               : 'border-transparent text-zinc-500 hover:text-black'

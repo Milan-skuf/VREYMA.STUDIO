@@ -40,17 +40,17 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
   }
 
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-      <div className="bg-white/90 backdrop-blur-xl border border-zinc-200 text-zinc-900 rounded-2xl px-5 py-3 flex items-center justify-between shadow-xl shadow-black/5">
+    <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 w-[96%] max-w-7xl z-50 pt-[env(safe-area-inset-top,0px)]">
+      <div className="bg-white/95 backdrop-blur-xl border border-zinc-200 text-zinc-900 rounded-2xl px-3.5 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between shadow-xl shadow-black/5">
         
         {/* Brand & Monospace Tag */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <button
             onClick={() => onOpenWindow('about')}
-            className="flex items-center gap-2 group cursor-pointer whitespace-nowrap"
+            className="flex items-center gap-2 group cursor-pointer whitespace-nowrap min-w-0"
           >
             <div className="w-2.5 h-2.5 rounded-full bg-black group-hover:scale-125 transition-all flex-shrink-0" />
-            <span className="font-mono font-extrabold tracking-widest text-sm text-black group-hover:opacity-70 transition-opacity whitespace-nowrap">
+            <span className="font-mono font-extrabold tracking-widest text-xs sm:text-sm text-black group-hover:opacity-70 transition-opacity truncate">
               VREYMA.STUDIO
             </span>
             <span className="hidden xl:inline-block font-mono text-[10px] text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded whitespace-nowrap">
@@ -113,9 +113,9 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
         </nav>
 
         {/* Right Status & Controls */}
-        <div className="flex items-center gap-2 sm:gap-3 font-mono text-xs whitespace-nowrap flex-shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 font-mono text-xs whitespace-nowrap flex-shrink-0">
           {/* Availability Status */}
-          <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-300 px-2.5 sm:px-3 py-1 rounded-full text-zinc-900 text-[11px] font-bold whitespace-nowrap flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-zinc-100 border border-zinc-300 px-2 sm:px-3 py-1 rounded-full text-zinc-900 text-[10px] sm:text-[11px] font-bold whitespace-nowrap flex-shrink-0">
             <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
@@ -134,14 +134,15 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
           </button>
 
           {/* Live Clock */}
-          <div className="font-mono text-xs font-bold tracking-wider text-black bg-zinc-100 px-3 py-1 rounded-lg border border-zinc-200">
+          <div className="font-mono text-[11px] sm:text-xs font-bold tracking-wider text-black bg-zinc-100 px-2 sm:px-3 py-1 rounded-lg border border-zinc-200 hidden xs:block">
             {time || '00:00:00'}
           </div>
 
           {/* Mobile hamburger menu toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-lg bg-zinc-100 border border-zinc-200 text-zinc-700"
+            className="md:hidden p-1.5 rounded-lg bg-zinc-100 border border-zinc-200 text-zinc-700 hover:bg-zinc-200 active:scale-95 transition-all"
+            aria-label="Переключить меню"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -150,49 +151,50 @@ export const TopNavbar: React.FC<TopNavbarProps> = ({
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 bg-white/95 backdrop-blur-2xl border border-zinc-200 text-zinc-900 rounded-2xl p-4 flex flex-col gap-2 shadow-2xl font-mono text-xs animate-in fade-in duration-200">
+        <div className="md:hidden mt-2 bg-white/98 backdrop-blur-2xl border border-zinc-300 text-zinc-900 rounded-2xl p-4 flex flex-col gap-2.5 shadow-2xl font-mono text-xs animate-in fade-in duration-200 ring-1 ring-black/5">
           <button
             onClick={() => {
               onOpenWindow('about');
               setMobileMenuOpen(false);
             }}
-            className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
+            className="text-left py-3 px-3.5 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center active:scale-[0.98] transition-transform"
           >
             <span className="text-black font-bold">[00] О НАС</span>
-            <span className="text-[10px] text-zinc-400">профиль.app</span>
+            <span className="text-[10px] text-zinc-500">команда.app</span>
           </button>
           <button
             onClick={() => {
               onOpenWindow('works');
               setMobileMenuOpen(false);
             }}
-            className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
+            className="text-left py-3 px-3.5 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center active:scale-[0.98] transition-transform"
           >
             <span className="text-black font-bold">[01] РАБОТЫ</span>
+            <span className="text-[10px] text-zinc-500">портфолио.app</span>
           </button>
           <button
             onClick={() => {
               onOpenWindow('pricing');
               setMobileMenuOpen(false);
             }}
-            className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
+            className="text-left py-3 px-3.5 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center active:scale-[0.98] transition-transform"
           >
             <span className="text-black font-bold">[02] ПРОЦЕСС И ЦЕНЫ</span>
-            <span className="text-[10px] text-zinc-500">Калькулятор</span>
+            <span className="text-[10px] text-zinc-500">калькулятор.app</span>
           </button>
           <button
             onClick={() => {
               onOpenWindow('contacts');
               setMobileMenuOpen(false);
             }}
-            className="text-left py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center"
+            className="text-left py-3 px-3.5 rounded-xl bg-zinc-50 hover:bg-zinc-100 border border-zinc-200 flex justify-between items-center active:scale-[0.98] transition-transform"
           >
             <span className="text-black font-bold">[03] КОНТАКТЫ</span>
-            <span className="text-[10px] text-emerald-600 font-bold">Прямая связь</span>
+            <span className="text-[10px] text-emerald-600 font-bold">связь.app</span>
           </button>
-          <div className="pt-2 border-t border-zinc-200 flex justify-around text-[10px] text-zinc-500">
-            <button onClick={() => { onOpenPrivacy(); setMobileMenuOpen(false); }}>/политика</button>
-            <button onClick={() => { onOpenTerms(); setMobileMenuOpen(false); }}>/условия</button>
+          <div className="pt-2 border-t border-zinc-200 flex justify-around text-[10px] text-zinc-500 font-mono">
+            <button onClick={() => { onOpenPrivacy(); setMobileMenuOpen(false); }} className="hover:text-black py-1">/политика</button>
+            <button onClick={() => { onOpenTerms(); setMobileMenuOpen(false); }} className="hover:text-black py-1">/условия</button>
           </div>
         </div>
       )}

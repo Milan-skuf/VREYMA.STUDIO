@@ -141,7 +141,7 @@ export const ContactsWindow: React.FC = () => {
                   placeholder="Иван Иванов"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2.5 sm:py-2 text-[16px] sm:text-xs text-black focus:outline-none focus:border-black transition-colors"
                 />
               </div>
 
@@ -153,7 +153,7 @@ export const ContactsWindow: React.FC = () => {
                   placeholder="@username или mail@domain.com"
                   value={formData.contact}
                   onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2.5 sm:py-2 text-[16px] sm:text-xs text-black focus:outline-none focus:border-black transition-colors"
                 />
               </div>
             </div>
@@ -164,7 +164,7 @@ export const ContactsWindow: React.FC = () => {
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2.5 sm:py-2 text-[16px] sm:text-xs text-black focus:outline-none focus:border-black transition-colors cursor-pointer"
                 >
                   <option value="Минималистичный сайт">Минималистичный премиум-сайт</option>
                   <option value="3D Макеты одежды">3D макеты / 3D реклама одежды</option>
@@ -179,7 +179,7 @@ export const ContactsWindow: React.FC = () => {
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-xs text-black focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2.5 sm:py-2 text-[16px] sm:text-xs text-black focus:outline-none focus:border-black transition-colors cursor-pointer"
                 >
                   <option value="1 000 — 5 000 ₽">1 000 — 5 000 ₽</option>
                   <option value="5 000 — 15 000 ₽">5 000 — 15 000 ₽</option>
@@ -196,7 +196,7 @@ export const ContactsWindow: React.FC = () => {
                 placeholder="Опишите цели проекта, референсы, желаемые сроки..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-xs text-black focus:outline-none focus:border-black transition-colors resize-none font-sans"
+                className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2.5 sm:py-2 text-[16px] sm:text-xs text-black focus:outline-none focus:border-black transition-colors resize-none font-sans"
               />
             </div>
 
