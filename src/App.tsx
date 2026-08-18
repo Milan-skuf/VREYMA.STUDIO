@@ -95,10 +95,10 @@ export default function App() {
   );
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-white font-sans text-zinc-900">
+    <div className="relative w-full min-h-screen sm:h-screen overflow-x-hidden sm:overflow-hidden bg-white font-sans text-zinc-900 flex flex-col">
       
-      {/* Studio Graphic Background */}
-      <div className="absolute inset-0 z-0 bg-white flex items-center justify-center sm:justify-end overflow-hidden sm:pr-6 md:pr-12 lg:pr-16">
+      {/* Studio Graphic Background (Hidden on mobile per user request for a cleaner minimal look) */}
+      <div className="hidden sm:flex absolute inset-0 z-0 bg-white items-center justify-end overflow-hidden sm:pr-6 md:pr-12 lg:pr-16">
         <img
           src={bgImage}
           alt="Studio Background"
@@ -119,10 +119,10 @@ export default function App() {
       />
 
       {/* Main Desktop Canvas Area */}
-      <main className="relative z-10 w-full min-h-screen pt-16 sm:pt-20 pb-36 sm:pb-24 px-3 sm:px-8 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+      <main className="relative z-10 w-full flex-1 pt-16 sm:pt-20 pb-48 sm:pb-24 px-4 sm:px-8 flex flex-col justify-start sm:justify-between overflow-y-auto custom-scrollbar">
         
         {/* Top Desktop Row: Hero Card & Desktop Folders */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8 max-w-7xl mx-auto w-full my-auto">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 sm:gap-8 max-w-7xl mx-auto w-full my-auto pb-12 sm:pb-0">
           
           {/* Main Hero Card (VREYMA.studio glass card) */}
           <div className="w-full lg:w-auto mt-2 sm:mt-8">
@@ -130,7 +130,7 @@ export default function App() {
           </div>
 
           {/* Interactive Desktop Folders Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-items-center w-full lg:w-auto my-auto mt-4 mb-8 sm:my-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 items-center justify-items-center w-full lg:w-auto my-auto mt-6 mb-12 sm:my-auto">
             <DesktopFolder
               id="about"
               label="О НАС"
